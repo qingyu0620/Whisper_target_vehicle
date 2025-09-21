@@ -10,7 +10,6 @@
       <TargetName>Template</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pArmCC>5060528::V5.06 update 5 (build 528)::ARMCC</pArmCC>
       <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
@@ -312,7 +311,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>0</Optim>
+            <Optim>1</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -337,7 +336,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32H723xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Drivers/STM32H7xx_HAL_Driver/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32H7xx/Include;../Drivers/CMSIS/Include;..\Drivers\SYSTEM\delay;..\Drivers\SYSTEM\sys;..\Drivers\SYSTEM\uart1;..\Drivers\Modules\Motor;..\Drivers\Modules\Remote;..\Drivers\Application;..\Drivers\Algorithm;..\Drivers\BSP;..\User;..\Drivers\Application\Chassis;..\Drivers\Modules\IMU</IncludePath>
+              <IncludePath>../Drivers/STM32H7xx_HAL_Driver/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32H7xx/Include;../Drivers/CMSIS/Include;..\Drivers\SYSTEM\delay;..\Drivers\SYSTEM\sys;..\Drivers\SYSTEM\uart1;..\Drivers\Modules\Motor;..\Drivers\Modules\Remote;..\Drivers\Application;..\Drivers\Algorithm;..\Drivers\BSP;..\User;..\Drivers\Application\Chassis;..\Drivers\Modules\IMU;..\Middlewares\FreeRTOS\include;..\Middlewares\FreeRTOS\portable\RVDS\ARM_CM7\r0p1</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -405,6 +404,11 @@
               <FileName>system_stm32h7xx.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\system_stm32h7xx.c</FilePath>
+            </File>
+            <File>
+              <FileName>FreeRTOS_Text.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\FreeRTOS_Text.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -644,7 +648,64 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Middlewares</GroupName>
+          <GroupName>Middlewares/FreeRTOS_CORE</GroupName>
+          <Files>
+            <File>
+              <FileName>croutine.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middlewares\FreeRTOS\croutine.c</FilePath>
+            </File>
+            <File>
+              <FileName>event_groups.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middlewares\FreeRTOS\event_groups.c</FilePath>
+            </File>
+            <File>
+              <FileName>list.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middlewares\FreeRTOS\list.c</FilePath>
+            </File>
+            <File>
+              <FileName>queue.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middlewares\FreeRTOS\queue.c</FilePath>
+            </File>
+            <File>
+              <FileName>stream_buffer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middlewares\FreeRTOS\stream_buffer.c</FilePath>
+            </File>
+            <File>
+              <FileName>tasks.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middlewares\FreeRTOS\tasks.c</FilePath>
+            </File>
+            <File>
+              <FileName>timers.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middlewares\FreeRTOS\timers.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/FreeRTOS_PORT</GroupName>
+          <Files>
+            <File>
+              <FileName>heap_4.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middlewares\FreeRTOS\portable\MemMang\heap_4.c</FilePath>
+            </File>
+            <File>
+              <FileName>port.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middlewares\FreeRTOS\portable\RVDS\ARM_CM7\r0p1\port.c</FilePath>
+            </File>
+            <File>
+              <FileName>portmacro.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middlewares\FreeRTOS\portable\RVDS\ARM_CM7\r0p1\portmacro.h</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>

@@ -43,8 +43,8 @@ void Rotation_Matrix()
 	
 	static float cos_theta, sin_theta;
 	
-	cos_theta = cosf(((int16_t)estimator.roll) * PI / 180.0f);
-	sin_theta = sinf(((int16_t)estimator.roll) * PI / 180.0f);
+	cos_theta = cosf((estimator.roll) * PI / 180.0f);
+	sin_theta = sinf((estimator.roll) * PI / 180.0f);
 	
 	chassis_vx = remote.X * cos_theta - remote.Y * sin_theta;
 	chassis_vy = remote.X * sin_theta + remote.Y * cos_theta;

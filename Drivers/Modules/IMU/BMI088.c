@@ -1,21 +1,21 @@
 #include "BMI088.h"
-#include "BMI088_Driver.h"
+#include "FreeRTOS.h"
+#include "task.h"
+
 #include "TIM.h"
 #include "PID.h"
+#include "BMI088_Driver.h"
 
 #include "math.h"
 #include "stdio.h"
 
 #define INT_LIMIT 0.1f
 
-
+PIDController tempctrl;
+Kalman_updata kalman_after_filter;
 BMI088_DATA imu_data;
 AttitudeEstimator estimator;
-
-Kalman_updata kalman_after_filter;
 Kalman_Data kalman_data;
-
-PIDController tempctrl;
 
 
 /**
@@ -54,7 +54,7 @@ void Attitude_Estimator_Init(AttitudeEstimator* est, float dt, float filter_coef
 * @retval   void
 * @details  将3轴向量转换成单位向量
 **/
-void Normalize_Vector(float* x, float* y, float* z) 
+void Normalize_Vector(float* x, float* y, float* z)
 {
     float norm = sqrtf(*x * *x + *y * *y + *z * *z);
     if (norm > 0.0f)
@@ -192,12 +192,12 @@ void Attitude_Estimator_Update(AttitudeEstimator* est, Kalman_Data* kalman_data)
 **/
 void Kalman_Attitude_Estimator_Update(BMI088_DATA* imu_data)
 {
-    // kalman_data.ax = Kalman_Update(&kalman_after_filter.ax, imu_data->ax, 0, TIM2_Detect_Time);
-    // kalman_data.ay = Kalman_Update(&kalman_after_filter.ay, imu_data->ay, 0, TIM2_Detect_Time);
-    // kalman_data.az = Kalman_Update(&kalman_after_filter.az, imu_data->az, 0, TIM2_Detect_Time);
-    kalman_data.gx = Kalman_Update(&kalman_after_filter.gx, imu_data->gx, 0, TIM2_Detect_Time);
-    kalman_data.gy = Kalman_Update(&kalman_after_filter.gy, imu_data->gy, 0, TIM2_Detect_Time);
-    kalman_data.gz = Kalman_Update(&kalman_after_filter.gz, imu_data->gz, 0, TIM2_Detect_Time);
+    // kalman_data.ax = Kalman_Update(&kalman_after_filter.ax, imu_data->ax, 0, BMI088_Delay);
+    // kalman_data.ay = Kalman_Update(&kalman_after_filter.ay, imu_data->ay, 0, BMI088_Delay);
+    // kalman_data.az = Kalman_Update(&kalman_after_filter.az, imu_data->az, 0, BMI088_Delay);
+    kalman_data.gx = Kalman_Update(&kalman_after_filter.gx, imu_data->gx, 0, BMI088_Delay);
+    kalman_data.gy = Kalman_Update(&kalman_after_filter.gy, imu_data->gy, 0, BMI088_Delay);
+    kalman_data.gz = Kalman_Update(&kalman_after_filter.gz, imu_data->gz, 0, BMI088_Delay);
     kalman_data.temp = imu_data->temp;
 
     Attitude_Estimator_Update(&estimator, &kalman_data);
@@ -214,8 +214,9 @@ void Kalman_Attitude_Estimator_Update(BMI088_DATA* imu_data)
 **/
 void TempCtrl_BMI088()
 {
-    int16_t pwmx = PID_Calculate(&tempctrl, estimator.temperate, TIM2_Detect_Time);
+    int16_t pwmx = PID_Calculate(&tempctrl, estimator.temperate, BMI088_Delay);
     if(pwmx < 0)
         pwmx = 0;
     TIM3_PWM_Set(pwmx);
 }
+

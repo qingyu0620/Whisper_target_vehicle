@@ -4,10 +4,12 @@
 #include "sys.h"
 #include "User_Define.h"
 
+
 //电机最大速度电流
 #define DJMotor_MaxCurrent	2500
 //电机最大旋转电流
 #define DJMotor_MaxRotate	3000
+
 
 //四电机电流结构体
 typedef struct

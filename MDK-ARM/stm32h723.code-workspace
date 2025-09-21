@@ -4,6 +4,13 @@
             "path": "."
         }
     ],
-    "settings": {},
+    "settings": {
+        "files.associations": {
+            "*.s": "a51",
+            "motor.h": "c",
+            "bmi088.h": "c",
+            "chassis.h": "c"
+        }
+    },
     "extensions": {}
 }

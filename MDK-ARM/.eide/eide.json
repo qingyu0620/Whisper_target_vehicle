@@ -27,6 +27,9 @@
           },
           {
             "path": "../User/system_stm32h7xx.c"
+          },
+          {
+            "path": "../User/FreeRTOS_Text.c"
           }
         ],
         "folders": []
@@ -217,7 +220,50 @@
       {
         "name": "Middlewares",
         "files": [],
-        "folders": []
+        "folders": [
+          {
+            "name": "FreeRTOS_CORE",
+            "files": [
+              {
+                "path": "../Middlewares/FreeRTOS/croutine.c"
+              },
+              {
+                "path": "../Middlewares/FreeRTOS/event_groups.c"
+              },
+              {
+                "path": "../Middlewares/FreeRTOS/list.c"
+              },
+              {
+                "path": "../Middlewares/FreeRTOS/queue.c"
+              },
+              {
+                "path": "../Middlewares/FreeRTOS/stream_buffer.c"
+              },
+              {
+                "path": "../Middlewares/FreeRTOS/tasks.c"
+              },
+              {
+                "path": "../Middlewares/FreeRTOS/timers.c"
+              }
+            ],
+            "folders": []
+          },
+          {
+            "name": "FreeRTOS_PORT",
+            "files": [
+              {
+                "path": "../Middlewares/FreeRTOS/portable/MemMang/heap_4.c"
+              },
+              {
+                "path": "../Middlewares/FreeRTOS/portable/RVDS/ARM_CM7/r0p1/port.c"
+              },
+              {
+                "path": "../Middlewares/FreeRTOS/portable/RVDS/ARM_CM7/r0p1/portmacro.h"
+              }
+            ],
+            "folders": []
+          }
+        ]
       },
       {
         "name": "::CMSIS",
@@ -389,6 +435,8 @@
           "../User",
           "../Drivers/Application/Chassis",
           "../Drivers/Modules/IMU",
+          "../Middlewares/FreeRTOS/include",
+          "../Middlewares/FreeRTOS/portable/RVDS/ARM_CM7/r0p1",
           ".cmsis/include",
           "RTE/_Template"
         ],

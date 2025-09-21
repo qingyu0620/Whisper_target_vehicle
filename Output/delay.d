@@ -42,3 +42,14 @@
 ..\output\delay.o: ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h
 ..\output\delay.o: ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_usart.h
 ..\output\delay.o: ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_usart_ex.h
+..\output\delay.o: ..\Middlewares\FreeRTOS\include\FreeRTOS.h
+..\output\delay.o: ..\User\FreeRTOSConfig.h
+..\output\delay.o: ..\Drivers\SYSTEM\uart1\UART1.h
+..\output\delay.o: ..\User\User_Define.h
+..\output\delay.o: ..\Middlewares\FreeRTOS\include\projdefs.h
+..\output\delay.o: ..\Middlewares\FreeRTOS\include\portable.h
+..\output\delay.o: ..\Middlewares\FreeRTOS\include\deprecated_definitions.h
+..\output\delay.o: ..\Middlewares\FreeRTOS\portable\RVDS\ARM_CM7\r0p1\portmacro.h
+..\output\delay.o: ..\Middlewares\FreeRTOS\include\mpu_wrappers.h
+..\output\delay.o: ..\Middlewares\FreeRTOS\include\task.h
+..\output\delay.o: ..\Middlewares\FreeRTOS\include\list.h

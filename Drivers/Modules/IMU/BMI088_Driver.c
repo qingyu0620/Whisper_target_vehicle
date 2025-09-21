@@ -174,7 +174,7 @@ uint8_t BMI088_init(void)
     BMI088_com_init();
     BMI088_TempCtrl_Init();
     BMI088_Kalman_Init();
-    Attitude_Estimator_Init(&estimator, TIM2_Detect_Time, 0.1f);
+    Attitude_Estimator_Init(&estimator, BMI088_Delay, 0.1f);
 
     error |= bmi088_accel_init();
     error |= bmi088_gyro_init();

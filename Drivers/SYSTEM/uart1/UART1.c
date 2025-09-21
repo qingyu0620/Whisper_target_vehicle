@@ -76,7 +76,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)
 		gpio_initstruct.Pin = P3;
 		HAL_GPIO_Init(GPIOE, &gpio_initstruct);
 		
-		HAL_NVIC_SetPriority(USART10_IRQn, 0, 0);
+		HAL_NVIC_SetPriority(USART10_IRQn, 6, 6);
 		HAL_NVIC_EnableIRQ(USART10_IRQn);
 
 		__HAL_UART_ENABLE_IT(huart, UART_IT_IDLE);

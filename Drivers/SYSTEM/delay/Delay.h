@@ -3,9 +3,10 @@
 
 #include "sys.h"
 
+void Delay_init(void);
 void Delay_us(uint32_t nus);    
-void Delay_usplus(uint32_t nus);
 void Delay_ms(uint32_t xms);
+
 
 
 #endif

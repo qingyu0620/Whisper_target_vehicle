@@ -44,9 +44,3 @@
 ..\output\tim.o: ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_usart_ex.h
 ..\output\tim.o: ..\User\User_Define.h
 ..\output\tim.o: ..\Drivers\Modules\Remote\IBUS.h
-..\output\tim.o: ..\Drivers\Modules\IMU\BMI088.h
-..\output\tim.o: ..\Drivers\Modules\IMU\BMI088_Reg.h
-..\output\tim.o: ..\Drivers\Algorithm\Kalman.h
-..\output\tim.o: ..\Drivers\Modules\IMU\BMI088_Driver.h
-..\output\tim.o: ..\Drivers\Application\Chassis\Chassis.h
-..\output\tim.o: D:\Keli_v5\ARM\ARMCC\Bin\..\include\stdio.h

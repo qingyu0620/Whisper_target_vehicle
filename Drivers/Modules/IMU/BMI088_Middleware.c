@@ -52,7 +52,7 @@ void BMI088_GPIO_init(void)
 * @brief:      	BMI088_com_init(void)
 * @param:       void
 * @retval:     	void
-* @details:    	BMI088传感器通信初始化函数
+* @details:    	SPI初始化函数
 ************************************************************************
 **/
 void BMI088_com_init(void)
@@ -64,7 +64,7 @@ void BMI088_com_init(void)
 * @brief:      	BMI088_TempCtrl_Init()
 * @param:       void
 * @retval:     	void
-* @details:    	void
+* @details:    	初始化温度控制PID
 ************************************************************************
 **/
 void BMI088_TempCtrl_Init()
@@ -80,15 +80,14 @@ void BMI088_TempCtrl_Init()
 * @brief:      	BMI088_Kalman_Init()
 * @param:       void
 * @retval:     	void
-* @details:    	void
-************************************************************************
+* @details:    	初始化BMI088六轴卡尔曼滤波数组
 **/
 void BMI088_Kalman_Init()
 {
-    // Kalman_Init(&kalman_after_filter.ax, 0.001f, 0.1f, 1.0f);
+    // Kalman_Init(&kalman_after_filter.ax, 0.001f, 0.1f, 1.0f);    // Q=0.001, R=0.1
     // Kalman_Init(&kalman_after_filter.ay, 0.001f, 0.1f, 1.0f);
-    // Kalman_Init(&kalman_after_filter.az, 0.001f, 0.002f, 1.0f); // Z轴重力加速度分量稳定，R更小
-    Kalman_Init(&kalman_after_filter.gx, 0.09f, 0.001f, 1.0f);
+    // Kalman_Init(&kalman_after_filter.az, 0.001f, 0.002f, 1.0f);  // Z轴重力加速度分量稳定，R更小
+    Kalman_Init(&kalman_after_filter.gx, 0.09f, 0.001f, 1.0f);  // Q=0.0001, R=0.05
     Kalman_Init(&kalman_after_filter.gy, 0.09f, 0.001f, 1.0f);
     Kalman_Init(&kalman_after_filter.gz, 0.09f, 0.001f, 1.0f);  // Z轴通常噪声稍大
 }

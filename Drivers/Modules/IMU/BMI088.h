@@ -6,6 +6,9 @@
 #include "BMI088_Reg.h"
 #include "Kalman.h"
 
+#define BMI088_Delay         0.005f                //s
+#define BMI088_Task_Delay    BMI088_Delay * 1000   //ms
+
 typedef struct 
 {
     // 四元数

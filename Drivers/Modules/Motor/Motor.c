@@ -8,16 +8,14 @@
 DJMotor_Feedback Lf_data, Rf_data, Lb_data, Rb_data;
 PIDController pid_Lf, pid_Rf, pid_Lb, pid_Rb;
 
-
 /**
-* @brief    DJMotor_Init()
-* @param    void
-* @retval   void
-* @details  初始化电机, 包含FDCAN初始化, TIM2初始化, 以及电机PID初始化
+* @brief:       DJMotor_Init()
+* @param:       void
+* @retval:      void
+* @details:    	初始化电机, 包含FDCAN初始化, TIM2初始化, 以及电机PID初始化
 **/
 void DJMotor_Init()
 {
-	TIM2_Init();
 	FDCAN_Init();
 
 	//配置PID, 选择最大值为PID允许的max_data
@@ -42,10 +40,10 @@ void DJMotor_Init()
 
 
 /**
-* @brief    DJMotor_Control()
-* @param    void
-* @retval   void
-* @details  控制电机转速, 转速rpm为反馈值, 目标电流target_data为目标, 解算实际电流actual_current
+* @brief:       DJMotor_Control()
+* @param:       void
+* @retval:      void
+* @details:    	控制电机转速, 转速rpm为反馈值, 目标电流target_data为目标, 解算实际电流actual_current
 **/
 void DJMotor_Control()
 {
@@ -63,10 +61,10 @@ void DJMotor_Control()
 
 
 /**
-* @brief    DJMotor_Stop()
-* @param    void
-* @retval   void
-* @details  控制电机停止
+* @brief:       DJMotor_Stop()
+* @param:       void
+* @retval:      void
+* @details:    	控制电机停止
 **/
 void DJMotor_Stop()
 {

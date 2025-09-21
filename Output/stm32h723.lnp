@@ -3,6 +3,7 @@
 "..\output\main.o"
 "..\output\stm32h7xx_it.o"
 "..\output\system_stm32h7xx.o"
+"..\output\freertos_text.o"
 "..\output\can.o"
 "..\output\tim.o"
 "..\output\spi.o"
@@ -40,6 +41,15 @@
 "..\output\stm32h7xx_hal_fdcan.o"
 "..\output\stm32h7xx_hal_spi.o"
 "..\output\stm32h7xx_hal_spi_ex.o"
+"..\output\croutine.o"
+"..\output\event_groups.o"
+"..\output\list.o"
+"..\output\queue.o"
+"..\output\stream_buffer.o"
+"..\output\tasks.o"
+"..\output\timers.o"
+"..\output\heap_4.o"
+"..\output\port.o"
 --library_type=microlib --strict --scatter "..\Output\stm32h723.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
